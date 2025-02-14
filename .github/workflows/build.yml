@@ -21,10 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.x Part 1
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+      - name: Set up Python
+        uses: ./.github/actions/setup-python
 
       - name: Set up Python 3.x Part 2
         run: |
@@ -123,10 +121,8 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           path: "pr-branch"
 
-      - name: Set up Python 3.x Part 1
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+      - name: Set up Python
+        uses: ./.github/actions/setup-python
 
       - name: Set up Python 3.x Part 2
         run: |
@@ -428,10 +424,8 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           path: "pr-branch"
 
-      - name: Set up Python 3.x Part 1
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
+      - name: Set up Python
+        uses: ./.github/actions/setup-python
 
       - name: Set up Python 3.x Part 2
         run: |
@@ -497,6 +491,7 @@ jobs:
         env:
           CHART_ENTRY_NAME: ${{ needs.chart-verifier.outputs.chart_entry_name }}
           WEB_CATALOG_ONLY: ${{ needs.chart-verifier.outputs.web_catalog_only }}
+          RELEASE_TAG: ${{ needs.chart-verifier.outputs.release_tag }}
         run: |
           INDEX_BRANCH=$(if [ "${GITHUB_REF}" = "refs/heads/main" ]; then echo "gh-pages"; else echo "${GITHUB_REF##*/}-gh-pages"; fi)
 
