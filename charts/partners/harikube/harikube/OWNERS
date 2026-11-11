@@ -1,0 +1,11 @@
+chart:
+  name: harikube
+  shortDescription: HariKube is an open-core petabyte-scale, versioned state machine
+    for any kind of data with Kubernetes and Kafka.
+providerDelivery: false
+publicPgpKey: unknown
+users:
+- githubUsername: mhmxs
+vendor:
+  label: harikube
+  name: Andras Gryszko Szanto

@@ -1,0 +1,11 @@
+chart:
+  name: varek
+  shortDescription: Kernel-enforced, policy-checked supervision of AI agent processes
+    on OpenShift.
+providerDelivery: false
+publicPgpKey: unknown
+users:
+- githubUsername: kwdoug63
+vendor:
+  label: soberagents
+  name: SOBER AGENTIC INFRASTRUCTURE INC.

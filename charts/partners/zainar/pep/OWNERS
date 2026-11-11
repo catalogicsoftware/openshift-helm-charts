@@ -1,0 +1,11 @@
+chart:
+  name: pep
+  shortDescription: 'Helm chart for Zainar PEP '
+providerDelivery: true
+publicPgpKey: unknown
+users:
+- githubUsername: andreip-zainar
+- githubUsername: danielpostolache
+vendor:
+  label: zainar
+  name: ZaiNar

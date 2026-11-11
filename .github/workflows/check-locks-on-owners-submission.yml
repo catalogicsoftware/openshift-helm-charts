@@ -30,7 +30,7 @@ jobs:
       github.event.pull_request.draft == false
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         
       - name: Set up Python
         id: setup-python
@@ -58,7 +58,7 @@ jobs:
       - name: Determine if net-new OWNERS file
         id: populate-file-mod-type
         if: ${{ steps.check_for_owners.outputs.merge_pr == 'true' }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -74,13 +74,15 @@ jobs:
 
       # Only used to assert content of the OWNERS file.
       - name: Checkout Pull Request
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           token: ${{ secrets.BOT_TOKEN }}
           fetch-depth: 0
           path: "pr-branch"
+          # Explicit fork checkout to read OWNERS file content
+          allow-unsafe-pr-checkout: true
 
       - name: Ensure OWNERS content and path content align
         working-directory: "pr-branch"
